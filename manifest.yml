@@ -1,0 +1,10 @@
+applications:
+- name: opss-zipfile-generator
+  buildpacks:
+    - ruby_buildpack
+  memory: 128M
+  instances: 1
+  stack: cflinuxfs3
+  command: export $(./deploy/env.sh) && rackup -p $PORT
+  services:
+    - opss-zipfile-env
